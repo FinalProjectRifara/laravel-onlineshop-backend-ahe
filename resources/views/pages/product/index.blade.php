@@ -59,6 +59,7 @@
                                         <tr>
 
                                             <th>Name Product</th>
+                                            <th>Description</th>
                                             <th>Category</th>
                                             <th>Price</th>
                                             <th>Weight</th>
@@ -72,6 +73,7 @@
                                             <tr>
 
                                                 <td> {{ $product->name }} </td>
+                                                <td> {{ $product->description }} </td>
                                                 <td> {{ $product->category->name }} </td>
                                                 <td>Rp. {{ number_format($product->price, 0, ',', '.') }} </td>
                                                 <td>Gram. {{ number_format($product->weight, 0, ',', '.') }} </td>
