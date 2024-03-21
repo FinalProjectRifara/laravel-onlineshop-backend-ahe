@@ -98,6 +98,7 @@ class ProductController extends Controller
             $product->image = $filename;
         }
         $product->price = $request->input('price');
+        $product->weight = $request->input('weight');
         $product->stock = $request->input('stock');
         if ($request->input('is_available') == "on") {
             $product->is_available = true;

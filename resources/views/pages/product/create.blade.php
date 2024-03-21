@@ -65,6 +65,20 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Weight</label>
+                                <input type="number"
+                                    class="form-control @error('weight')
+                                is-invalid
+                            @enderror"
+                                    name="weight">
+                                @error('weight')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
                                 <label>Stock</label>
                                 <input type="number"
                                     class="form-control @error('stock')

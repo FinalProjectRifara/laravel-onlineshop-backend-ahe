@@ -61,6 +61,7 @@
                                             <th>Name Product</th>
                                             <th>Category</th>
                                             <th>Price</th>
+                                            <th>Weight</th>
                                             <th>Stock</th>
                                             <th>image</th>
                                             <th>Created At</th>
@@ -73,7 +74,9 @@
                                                 <td> {{ $product->name }} </td>
                                                 <td> {{ $product->category->name }} </td>
                                                 <td>Rp. {{ number_format($product->price, 0, ',', '.') }} </td>
+                                                <td>Gram. {{ number_format($product->weight, 0, ',', '.') }} </td>
                                                 <td> {{ $product->stock }} </td>
+
 
                                                 <td>
                                                     @if ($product->image == null)

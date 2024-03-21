@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('image')->nullable();
             // price
             $table->integer('price')->nullable();
+            // weight product
+            $table->integer('weight')->nullable();
             // in stock or not
             $table->integer('stock');
             // Sudah habis atau tidak?
