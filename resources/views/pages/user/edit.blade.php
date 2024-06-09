@@ -37,6 +37,8 @@
                             <h4>Input Text</h4>
                         </div>
                         <div class="card-body">
+
+                            {{-- Form Name --}}
                             <div class="form-group">
                                 <label>Name</label>
                                 <input type="text"
@@ -50,6 +52,8 @@
                                     </div>
                                 @enderror
                             </div>
+
+                            {{-- Form Email --}}
                             <div class="form-group">
                                 <label>Email</label>
                                 <input type="email"
@@ -63,6 +67,8 @@
                                     </div>
                                 @enderror
                             </div>
+
+                            {{-- Form Password --}}
                             <div class="form-group">
                                 <label>Password</label>
                                 <div class="input-group">
@@ -83,10 +89,30 @@
                                     </div>
                                 @enderror
                             </div>
+
+                            {{-- Form Phone --}}
                             <div class="form-group">
                                 <label>Phone</label>
                                 <input type="number" class="form-control" name="phone" value="{{ $user->phone }}">
                             </div>
+
+                            {{-- Form Address --}}
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input type="text"
+                                    class="form-control
+                                    @error('address')
+                                            is-invalid
+                                    @enderror"
+                                    name="address" value="{{ $user->address }}">
+                                @error('address')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
+                            {{-- ROLES --}}
                             <div class="form-group">
                                 <label class="form-label">Roles</label>
                                 <div class="selectgroup w-100">

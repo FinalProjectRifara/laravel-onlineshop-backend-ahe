@@ -23,8 +23,8 @@ class User extends Authenticatable
         'password',
         'phone',
         'roles',
+        'address',
         'fcm_id'
-
     ];
 
     /**

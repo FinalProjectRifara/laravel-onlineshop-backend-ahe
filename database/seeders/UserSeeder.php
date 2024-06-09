@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'phone' =>  '085712345678',
             'roles' => 'ADMIN',
+            'address' => 'Pondok Alam Permai Purati',
         ]);
     }
 }
