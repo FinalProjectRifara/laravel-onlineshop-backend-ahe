@@ -85,7 +85,7 @@
                                                         No Image
                                                     @else
                                                         <img src="{{ asset('storage/products/' . $product->image) }}"
-                                                            width="200" height="200">
+                                                            width="400" height="400">
                                                     @endif
                                                 </td>
 

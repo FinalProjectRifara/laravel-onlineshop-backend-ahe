@@ -8,21 +8,27 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index(Request $request)
     {
-        // Get products get all or search by category_id
-        $products = Product::when($request->category_id, function ($query) use ($request) {
-            return $query->where('category_id', '=', $request->category_id);
-        })->paginate(10);
+        // Get products, either all or search by category_id or name
+        $products = Product::query(); // Memulai query builder untuk model Product
 
-        return  response()->json([
-            // "status" => true,
+        if ($request->has('category_id')) {
+            $products->where('category_id', $request->category_id); // Menambahkan filter berdasarkan category_id jika disediakan dalam request
+        }
+
+        if ($request->has('name')) {
+            $products->where('name', 'like', '%' . $request->name . '%'); // Menambahkan filter berdasarkan nama jika disediakan dalam request
+        }
+
+        // Melakukan paginasi dengan batas yang sangat besar untuk mendapatkan semua hasil dalam satu halaman
+        $products = $products->paginate(99999);
+
+        return response()->json([
             "message" => "Success",
             "data" => $products
-        ], 200);
+        ], 200); // Status HTTP 200 untuk sukses
     }
 
     /**
@@ -30,7 +36,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Implementasi untuk menyimpan produk baru akan ditempatkan di sini.
     }
 
     /**
@@ -38,7 +44,7 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // Implementasi untuk menampilkan produk tertentu berdasarkan ID akan ditempatkan di sini.
     }
 
     /**
@@ -46,7 +52,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Implementasi untuk memperbarui produk berdasarkan ID akan ditempatkan di sini.
     }
 
     /**
@@ -54,6 +60,6 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Implementasi untuk menghapus produk berdasarkan ID akan ditempatkan di sini.
     }
 }
