@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -54,3 +55,8 @@ Route::get('/orders', [\App\Http\Controllers\Api\OrderController::class, 'getOrd
 // get order by id
 Route::get('/order/{id}', [\App\Http\Controllers\Api\OrderController::class, 'getOrderById'])->middleware("auth:sanctum");
 
+Route::get('/products', [ProductController::class, 'index']);
+Route::post('/products', [ProductController::class, 'store']);
+Route::get('/products/{id}', [ProductController::class, 'show']);
+Route::put('/products/{id}', [ProductController::class, 'update']);
+Route::delete('/products/{id}', [ProductController::class, 'destroy']);
