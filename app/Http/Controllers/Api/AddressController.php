@@ -22,6 +22,16 @@ class AddressController extends Controller
         ]);
     }
 
+    // Address by Id
+    public function detail($id)
+    {
+        $addresses = DB::table('addresses')->find($id);
+        return response()->json([
+            'status' => 'success',
+            'data' => $addresses
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      * Update Data
@@ -55,6 +65,7 @@ class AddressController extends Controller
         }
 
     }
+
 
     /**
      * Display the specified resource.

@@ -37,6 +37,8 @@ Route::get("/categories", [\App\Http\Controllers\Api\CategoryController::class, 
 // Products
 Route::get("/products", [\App\Http\Controllers\Api\ProductController::class, 'index']);
 
+Route::get('/addresses/{id}', [\App\Http\Controllers\Api\AddressController::class, 'detail'])->middleware("auth:sanctum");
+
 // Address apiResource dibuatkan crudnya
 Route::apiResource("/addresses", \App\Http\Controllers\Api\AddressController::class)->middleware("auth:sanctum");
 
