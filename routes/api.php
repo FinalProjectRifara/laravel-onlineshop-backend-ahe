@@ -19,6 +19,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+Route::middleware('auth:sanctum')->put('/user/{id}', [\App\Http\Controllers\UserController::class, 'updateData']);
+
 // Register
 Route::post("/register", [\App\Http\Controllers\Api\AuthController::class, 'register']);
 

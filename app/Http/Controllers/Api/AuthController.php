@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -92,4 +95,31 @@ class AuthController extends Controller
             'message' => 'FCM ID updated',
         ], 200);
     }
+
+    // public function updateData(Request $request, $id)
+    // {
+    //     // $user = Auth::user();
+
+    //     $user = Auth::user()($id);
+
+    //     $validator = Validator::make($request->all(), [
+    //         'name' => 'sometimes|string|max:255',
+    //         'email' => 'sometimes|string|email|max:255|unique:users,email,' . $user->id,
+    //         'phone' => 'sometimes|string|max:18',
+    //         'address' => 'sometimes|string|max:200',
+    //         'roles' => 'sometimes|string',
+    //         // Tambahkan validasi lainnya sesuai kebutuhan
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return response()->json(['errors' => $validator->errors()], 422);
+    //     }
+
+    //     // $user->update($data);
+    //     $user->update($request->only('name', 'email', 'phone', 'address', 'roles'));
+
+    //     Log::info('User after update', ['user' => $user]);
+
+    //     return response()->json(['message' => 'User updated successfully', 'user' => $user]);
+    // }
 }
